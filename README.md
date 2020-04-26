@@ -1,3 +1,5 @@
-# Coffee Machine simulation using Python OOP
+# JetBrains Academy mini projects in Python
 
-Part of JetBrains Academy curriculum
+* Coffee Machine | simulation using OOP
+* Hangman | text-based game 
+* Tic-Tac-Toe | text-based game
