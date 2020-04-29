@@ -8,6 +8,7 @@
 * Zookeeper | Simulation. Simple printing of ascii animals
 
 ## Medium
+* Rock-Paper-Scissors | Text-based game, includes other variations like lizard-spock
 * Browser | Text-based web browser (coming soon)
 
 ### Hard
