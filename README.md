@@ -22,3 +22,4 @@
 | ------------------------- | ------------------------------------------------------------ |
 | Calculator                | Text-based calculator ( + - * / )                            |
 | Numeric Matrix Processor  | Matrix operations: addition, multiplication by scalar or other matrix, transposition, inversion, determinants and cofactors |
+| Password Hacker           | Basic server hacking based on brute-force or vulnerabilities. Itertools generators, socket, json |
