@@ -15,7 +15,7 @@
 | Rock-Paper-Scissors       | Text-based game, includes other variations like lizard-spock |
 | Credit Calculator         | Calculates annuity and differantiated payments from terminal |
 | Credit Calculator         | Calculates annuity and differantiated payments internally    |
-| Internet Browser          | Text-based web browser (incomplete, coming soon)             |
+| Internet Browser          | Text-based web browser. Sends server requests and parses HTML. Uses colorama, beautifulsoup4, requests. |
 
 ## Hard
 | Project                   | Small description                                            |
