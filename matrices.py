@@ -59,6 +59,20 @@ class Matrix:
         return Matrix(mtrx)
 
 
+    def subtraction(self, mtrx2):
+        """Subtracts another matrix from this matrix. Returns the resulting new matrix object"""
+        if (self.rows, self.cols) != (mtrx2.rows, mtrx2.cols):
+            print('The operation cannot be performed.')
+            return False
+        mtrx = []
+        for r in range(self.rows):
+            row = []
+            for c in range(self.cols):
+                row.append(self.matrix[r][c] - mtrx2.matrix[r][c])
+            mtrx.append(row)
+        return Matrix(mtrx)
+
+
     def multiplication_by_scalar(self):
         """multiplies this matrix by a scalar. Returns the resulting matrix"""
         try:
@@ -248,11 +262,12 @@ def options():
     print('\n' * 4)
     while True:
         print('1. Add matrices')
-        print('2. Multiply matrix by a constant')
-        print('3. Multiply matrices')
-        print('4. Transpose matrix')
-        print('5. Calculate a determinant')
-        print('6. Inverse matrix')
+        print('2. Subtract matrices')
+        print('3. Multiply matrix by a constant')
+        print('4. Multiply matrices')
+        print('5. Transpose matrix')
+        print('6. Calculate a determinant')
+        print('7. Inverse matrix')
         print('0. Exit')
         user_input = input('Your choice: ')
         return user_input
@@ -283,20 +298,24 @@ def user_interaction():
             matrix_B = create_matrix('second ')
             result = matrix_A.addition(matrix_B)
         elif UI == '2':
+            matrix_A = create_matrix('first ')
+            matrix_B = create_matrix('second ')
+            result = matrix_A.subtraction(matrix_B)
+        elif UI == '3':
             matrix_A = create_matrix()
             result = matrix_A.multiplication_by_scalar()
-        elif UI == '3':
+        elif UI == '4':
             matrix_A = create_matrix('first ')
             matrix_B = create_matrix('second ')
             result = matrix_A.multiplication(matrix_B)
-        elif UI == '4':
+        elif UI == '5':
             trans_type = transposition_type()
             matrix_A = create_matrix()
             result = matrix_A.transposition(trans_type)
-        elif UI == '5':
+        elif UI == '6':
             matrix_A = create_matrix()
             result = matrix_A.determinant()
-        elif UI == '6':
+        elif UI == '7':
             matrix_A = create_matrix()
             result = matrix_A.inverse()
         else:
