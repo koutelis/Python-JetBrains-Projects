@@ -23,11 +23,9 @@
 | Calculator                | Text-based calculator ( + - * / )                            |
 | Numeric Matrix Processor  | Matrix operations: addition, multiplication by scalar or other matrix, transposition, inversion, determinants and cofactors |
 
-## Nightmare
+## Challenging
 | Project                   | Small description                                            |
 | ------------------------- | ------------------------------------------------------------ |
 | Password Hacker           | Basic server hacking based on brute-force or vulnerabilities. Itertools generators, socket, json |
 | AI Tic-Tac-Toe            | Text-based game. Play against a computer that utilizes minimax algorithm |
-| Hypercar Service Senter   | **INCOMPLETE**                                                   |
-| HyperNews Portal          | **INCOMPLETE**                                                   |
 
