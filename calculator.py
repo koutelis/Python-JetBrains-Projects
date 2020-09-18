@@ -57,32 +57,6 @@ def var_assign(x):
     else:
         print('Invalid identifier')
 
-from collections import deque
-
-
-def var_assign(x):
-    """populates the variables dictionary"""
-    x = [item.strip() for item in x.split('=')]  # split expression terms
-    term1, term2 = x[0], x[1]
-    # check 1st term for valid identifier (no numbers or other characters)
-    if term1.isalpha():
-        # assignment must have two terms only
-        if len(x) != 2:
-            print('Invalid assignment')
-        else:
-            # if num, add to dict
-            if term2.isnumeric():
-                variables[term1] = int(term2)
-            # check if 2nd term is already stored in dict, then add its value
-            elif variables.get(term2):
-                variables[term1] = variables[term2]
-            elif not term2.isalpha():
-                print('Invalid assignment')
-            else:
-                print('Unknown variable')
-    else:
-        print('Invalid identifier')
-
 
 def test_brackets(string):
     stack = deque()
