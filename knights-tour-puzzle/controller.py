@@ -1,7 +1,14 @@
-import game
+from board import Board
 
 
 class GameController:
+    """
+    Class responsible for user interaction, receiving input,
+    validation of input and option selection.
+    Manipulates the board according to user input.
+
+    :ivar board: The game's board to be controlled
+    """
 
     def __init__(self, board=None):
         self.board = board
@@ -15,7 +22,7 @@ class GameController:
             user_input = input("Enter your board dimensions: ")
             if GameController.__validate_board_dimensions(user_input):
                 rows, cols = tuple(map(int, user_input.split()))
-                self.board = game.Board(cols, rows)  # inverted because the implementation matrix is transposed
+                self.board = Board(cols, rows)  # inverted because the implementation matrix is transposed
                 return self.board
             else:
                 print('Invalid dimensions!')
@@ -96,15 +103,39 @@ class GameController:
         if target_cell not in adjacent or target_cell.visited:
             return False
         return True
+    
+    @staticmethod
+    def select_solution_option():
+        """Ask user to select a solution option and return the relevant function."""
+        while True:
+            user_input = input('Do you want to try the puzzle? (y/n): ')
+            if user_input == 'y':
+                return manual_solve
+            if user_input == 'n':
+                return auto_solve
+            else:
+                print('Invalid input')
 
 
-def select_option():
-    """Ask user to select a solution option and return the relevant function."""
-    while True:
-        user_input = input('Do you want to try the puzzle? (y/n): ')
-        if user_input == 'y':
-            return game.manual_solution
-        if user_input == 'n':
-            return game.auto_solution
-        else:
-            print('Invalid input')
+def manual_solve(ctrl):
+    """User manually solves the game."""
+    board = ctrl.board
+    board.display_possible_moves()
+    possible = True
+    while possible:
+        board.current = ctrl.input_coordinates()
+        board.display_possible_moves()
+        possible = board.current.has_possible_moves()
+    result(board)
+
+
+def auto_solve(ctrl):
+    """
+    Automatic solution by recursion and backtracking.
+    Implemented by Warnsdorff's rule.
+    """
+    board = ctrl.board
+    board.mark_solution()
+    if board.is_solved():
+        print('Here\'s the solution!')
+        print(board)
