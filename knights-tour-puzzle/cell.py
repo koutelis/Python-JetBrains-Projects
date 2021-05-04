@@ -16,6 +16,8 @@ class Cell:
     :ivar visited: boolean, whether the cell has been visited
     """
 
+    knights = [(-2, -1), (-2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2), (2, -1), (2, 1)]
+
     def __init__(self, x, y, board):
         self.board = board
         self.x = x - 1
@@ -47,13 +49,15 @@ class Cell:
 
     def adjacent_cells(self):
         """Return a set of Cells: possible to move to by Knight's move."""
-        max_row = self.board.rows - 1
-        max_col = self.board.cols - 1
-        adjecent = {self.board.grid[self.x + r][self.y + c] for r in [-2, -1, 1, 2]
-                    for c in [-2, -1, 1, 2] if 0 <= self.x + r <= max_row and
-                    0 <= self.y + c <= max_col and abs(r) != abs(c)
-                    and not self.board.grid[self.x + r][self.y + c].visited}
-        return adjecent
+        adjacent = set()
+        for (r, c) in Cell.knights:
+            try:
+                neighbor = self.board.grid[self.x + r][self.y + c]
+                if not neighbor.visited:
+                    adjacent.add(neighbor)
+            except IndexError:
+                pass
+        return adjacent
 
     def update_possibilities(self):
         """Update how many possible moves are currently possible from this cell"""

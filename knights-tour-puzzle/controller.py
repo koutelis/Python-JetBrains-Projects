@@ -126,7 +126,7 @@ def manual_solve(ctrl):
         board.current = ctrl.input_coordinates()
         board.display_possible_moves()
         possible = board.current.has_possible_moves()
-    result(board)
+    print(board)
 
 
 def auto_solve(ctrl):
